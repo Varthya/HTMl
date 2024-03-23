@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>TodoList</h1>
+        <input onkeyup="todo(event)" type="text">
+        <button onclick="addtodo()">add todo</button>
+        <ol id="d1">
+            
+        </ol>
+    </div>
+    <script>
+        var todos = ["raj", "naresh", "suresh", 'rajkumar']
+        d1 = document.getElementById("d1")
+        var x;
+        function todo(e){
+             x = e.target.value
+            console.log(e.target.value);
+        }
+
+        function addtodo(){
+            todos.push(x)
+            console.log(todos);
+            genUI()
+        }
+
+        function genUI(){
+        d1.innerHTML = ''
+        todos.forEach(function(todo){
+            li = document.createElement('li')
+            li.innerHTML = todo
+            del = document.createElement('button')
+            del.innerHTML = "delete"
+            li.appendChild(del)
+            d1.appendChild(li)
+        })
+
+        }
+
+        genUI()
+
+    </script>
+</body>
+</html>
